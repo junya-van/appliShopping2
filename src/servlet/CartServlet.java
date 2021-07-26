@@ -72,7 +72,7 @@ public class CartServlet extends HttpServlet {
 
 				if((count + cart.get(x).getCount()) > bean.getQuantity()) {
 
-					// カートに追加した際の購入数と既にカートに入っていた商品の購入数の合計が在庫を超えていた場合
+					// カートに追加した際の購入数と既にカートに入っていた商品との購入数の合計が在庫を超えていた場合
 					request.setAttribute("errorMsg", "追加されませんでした。在庫数を超える数は指定できません");
 
 					rd = request.getRequestDispatcher("/WEB-INF/jsp/details.jsp");

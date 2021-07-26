@@ -17,11 +17,14 @@ public class UserRegistDao {
 	private Connection con = null;
 	private PreparedStatement ps = null;
 
-	// データベース接続に使用する情報
+	// AWS上でデータベース接続に使用する情報
+	private final String RDS_HOSTNAME = System.getProperty("RDS_HOSTNAME");
+	private final String RDS_PORT = System.getProperty("RDS_PORT");
+	private final String RDS_DB_NAME = System.getProperty("RDS_DB_NAME");
+	private final String RDS_USERNAME = System.getProperty("RDS_USERNAME");
+	private final String RDS_PASSWORD = System.getProperty("RDS_PASSWORD");
 	private final String JDBC_NAME = "com.mysql.cj.jdbc.Driver";
-	private final String JDBC_URL = "jdbc:mysql://localhost/shop2";
-	private final String DB_USER = "root";
-	private final String DB_PASS = "MYSQLJUNYA";
+	private final String JDBC_URL = "jdbc:mysql://" + RDS_HOSTNAME + ":" + RDS_PORT + "/" + RDS_DB_NAME + "?user=" + RDS_USERNAME + "&password=" + RDS_PASSWORD;
 
 	/**
 	 * データベースにユーザ情報を登録します
@@ -29,14 +32,15 @@ public class UserRegistDao {
 	 * @return 　　登録件数
 	 * @throws 　　SQLException
 	 */
-	public int insert(LoginUserBean bean) throws SQLException, SQLIntegrityConstraintViolationException {
+	public int insert(LoginUserBean bean) throws SQLException {
 
 		int result = 0;
 
 		try {
 
 			Class.forName(JDBC_NAME);
-			con = DriverManager.getConnection(JDBC_URL, DB_USER, DB_PASS);
+			con = DriverManager.getConnection(JDBC_URL);
+
 
 			String sql = "insert into user(id, pass, name, age) values(?, ?, ?, ?)";
 			ps = con.prepareStatement(sql);

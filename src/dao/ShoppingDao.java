@@ -21,11 +21,14 @@ public class ShoppingDao {
 	private ResultSet rs = null;
 	private PreparedStatement ps = null;
 
-	// データベース接続に使用する情報
+	// AWS上でデータベース接続に使用する情報
+	private final String RDS_HOSTNAME = System.getProperty("RDS_HOSTNAME");
+	private final String RDS_PORT = System.getProperty("RDS_PORT");
+	private final String RDS_DB_NAME = System.getProperty("RDS_DB_NAME");
+	private final String RDS_USERNAME = System.getProperty("RDS_USERNAME");
+	private final String RDS_PASSWORD = System.getProperty("RDS_PASSWORD");
 	private final String JDBC_NAME = "com.mysql.cj.jdbc.Driver";
-	private final String JDBC_URL = "jdbc:mysql://localhost/shop2";
-	private final String DB_USER = "root";
-	private final String DB_PASS = "MYSQLJUNYA";
+	private final String JDBC_URL = "jdbc:mysql://" + RDS_HOSTNAME + ":" + RDS_PORT + "/" + RDS_DB_NAME + "?user=" + RDS_USERNAME + "&password=" + RDS_PASSWORD;
 
 	/**
 	 * データベースから商品と在庫を取得します
@@ -37,7 +40,7 @@ public class ShoppingDao {
 		try {
 
 			Class.forName(JDBC_NAME);
-			con = DriverManager.getConnection(JDBC_URL, DB_USER, DB_PASS);
+			con = DriverManager.getConnection(JDBC_URL);
 
 			String sql = "select item.item_id, item.item_name, item.price, item.text, stock.quantity from item inner join stock on item.item_id = stock.item_id";
 			ps = con.prepareStatement(sql);
@@ -66,7 +69,7 @@ public class ShoppingDao {
 		try {
 
 			Class.forName(JDBC_NAME);
-			con = DriverManager.getConnection(JDBC_URL, DB_USER, DB_PASS);
+			con = DriverManager.getConnection(JDBC_URL);
 
 			String sql = "select item.item_id, item.item_name, item.price, item.text, stock.quantity from item inner join stock on item.item_id = stock.item_id where item.item_id = ?";
 			ps = con.prepareStatement(sql);
@@ -96,7 +99,7 @@ public class ShoppingDao {
 		try {
 
 			Class.forName(JDBC_NAME);
-			con = DriverManager.getConnection(JDBC_URL, DB_USER, DB_PASS);
+			con = DriverManager.getConnection(JDBC_URL);
 
 			String sql = "select history.item_id, item.item_name, history.quantity, history.date from history inner join item on history.id = ? and history.item_id = item.item_id";
 			ps = con.prepareStatement(sql);
@@ -125,7 +128,7 @@ public class ShoppingDao {
 		try {
 
 			Class.forName(JDBC_NAME);
-			con = DriverManager.getConnection(JDBC_URL, DB_USER, DB_PASS);
+			con = DriverManager.getConnection(JDBC_URL);
 
 			// 手動コミットモードに切り替え
 			con.setAutoCommit(false);
@@ -173,7 +176,7 @@ public class ShoppingDao {
 		try {
 
 			Class.forName(JDBC_NAME);
-			con = DriverManager.getConnection(JDBC_URL, DB_USER, DB_PASS);
+			con = DriverManager.getConnection(JDBC_URL);
 
 			// 手動コミットモードに切り替え
 			con.setAutoCommit(false);

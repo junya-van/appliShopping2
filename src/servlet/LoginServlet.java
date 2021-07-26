@@ -73,7 +73,7 @@ public class LoginServlet extends HttpServlet {
 			// セッションスコープを破棄
 			session.invalidate();
 
-			response.sendRedirect("/appliShopping2/");
+			response.sendRedirect(request.getContextPath() + "/");
 
 		} else if("history".equals(btn)) {
 
