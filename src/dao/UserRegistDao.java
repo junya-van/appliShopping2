@@ -59,7 +59,7 @@ public class UserRegistDao {
 		} catch(SQLIntegrityConstraintViolationException e) {
 
 			// userテーブルのカラムid(ユーザID)はprimarykeyの為、ユーザIDが重複していた場合キャッチして0を返す
-			return result;
+			return result; //←これ必要？
 
 		}
 

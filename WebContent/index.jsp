@@ -2,7 +2,7 @@
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
-<%-- ログイン画面 --%>
+<%-- ログイン画面   --%>
 <!DOCTYPE html>
 <html>
 	<head>
