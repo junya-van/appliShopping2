@@ -8,15 +8,21 @@ Schooというネット教材の「Java中級ショッピング風サイト」(h
 ![Webp net-gifmaker7](https://user-images.githubusercontent.com/72599378/143733150-e0f0c04d-ecfd-4d85-a34e-777a08d46f17.gif)
 
 # 使用技術
+### フロントエンド
 HTML
 
+### バックエンド
 Java(サーブレット)
 
 JSP
 
 MySQL 8.0.23
 
+### テスト
 JUnit 5
+
+### インフラ
+AWS(Elastic Beanstalk,　EC2, RDS, Route53)
 
 # 機能
 ログイン、ログアウト機能
