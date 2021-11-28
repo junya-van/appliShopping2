@@ -1,3 +1,5 @@
+URL: http://shoppingmodoki.com/
+
 # 概要
 Schooというネット教材の「Java中級ショッピング風サイト」(https://schoo.jp/class/2933![image](https://user-images.githubusercontent.com/72599378/143299216-63c716e1-f8f6-4c5b-9594-26c183cb1562.png)
 )を元に作りました。
