@@ -7,9 +7,13 @@ Schooというネット教材の「Java中級ショッピング風サイト」(h
 
 # 使用技術
 HTML
+
 Java(サーブレット)
+
 JSP
+
 MySQL 8.0.23
+
 JUnit 5
 
 # 機能
