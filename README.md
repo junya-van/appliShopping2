@@ -2,6 +2,9 @@
 Schooというネット教材の「Java中級ショッピング風サイト」(https://schoo.jp/class/2933![image](https://user-images.githubusercontent.com/72599378/143299216-63c716e1-f8f6-4c5b-9594-26c183cb1562.png)
 )を元に作りました。
 
+
+![Webp net-gifmaker7](https://user-images.githubusercontent.com/72599378/143733150-e0f0c04d-ecfd-4d85-a34e-777a08d46f17.gif)
+
 # 使用技術
 HTML
 Java(サーブレット)
