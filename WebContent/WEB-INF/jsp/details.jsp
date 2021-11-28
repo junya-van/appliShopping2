@@ -13,24 +13,6 @@
 		<jsp:include page="/WEB-INF/jsp/header.jsp"/>
 		<h1>商品詳細</h1>
 
-		<c:if test="${item.itemId == 's0001'}">
-			<div align="left">
-				<img src="/images/entertainment_comic.png" width="100px" height="100px">
-			</div>
-		</c:if>
-
-		<c:if test="${item.itemId == 's0002'}">
-			<div align="left">
-				<img src="/images/job_kyuujinshi.png" width="100px" height="100px">
-			</div>
-		</c:if>
-
-		<c:if test="${item.itemId == 's0003'}">
-			<div align="left">
-				<img src="/images/game_software_cassette.png" width="100px" height="100px">
-			</div>
-		</c:if>
-
 		商品ID:<c:out value="${item.itemId }"/><br>
 		商品名:<c:out value="${item.itemName }"/><br>
 		単価:<c:out value="${item.price }"/><br>

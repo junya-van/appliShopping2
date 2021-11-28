@@ -33,7 +33,7 @@ public class CartServlet extends HttpServlet {
 
 	/**
 	 * POSTメソッドでリクエストされた場合の処理(詳細画面から商品をカートに追加する時の処理).<br>
-	 * 初回時(カートに何も入っていない状態)と、カートに商品を追加した際に、既に同じ商品が入っていた場合と別の商品が入っていた場合に処理が分岐します
+	 * 初回時(カートに何も入っていない状態)と、カートに商品を追加した際に、同じ商品が入っていた場合とそうでなかった場合に処理が分岐します
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
@@ -66,7 +66,7 @@ public class CartServlet extends HttpServlet {
 
 			if(cart.indexOf(bean) != -1) {
 
-				// カートには既に同じ商品が入っていた場合
+				// カートに同じ商品が入っていた場合
 
 				int x = cart.indexOf(bean);
 
@@ -88,8 +88,6 @@ public class CartServlet extends HttpServlet {
 				}
 
 			} else {
-
-				// カートには別の商品が入っていた場合
 
 				bean.setCount(count);
 
